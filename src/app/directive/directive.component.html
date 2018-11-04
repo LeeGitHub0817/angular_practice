@@ -1,0 +1,60 @@
+<h1>指令练习</h1>
+<div class="directive-con">
+  <p *ngIf="isAgreed">该用户同意此协议</p>
+  <p *ngIf="score >= 60; else notPass">该学生成绩及格</p>
+  <ng-template #notPass>该学生成绩不及格</ng-template>
+  <h1>用户性别：{{ sex }}</h1>
+  <div [ngSwitch]="sex">
+    <p *ngSwitchCase="0">男</p>
+    <p *ngSwitchCase="1" >女</p>
+    <p *ngSwitchCase="2">保密</p>
+  </div>
+  <hr>
+  <h1>用户信息：</h1>
+  <ul>
+    <li *ngFor="let i of userList">
+      {{ i.name }}->{{ i.salary }}
+    </li>
+  </ul>
+  <h1>使用表格展示</h1>
+  <table border="1" width="100%">
+    <tr>
+      <th>姓名</th>
+      <th>薪水</th>
+    </tr>
+    <tr *ngFor="let item of userList">
+      <td>{{ item.name }}</td>
+      <td>{{ item.salary }}</td>
+    </tr>
+  </table>
+  <hr>
+  <h1>只显示薪水大于10000的</h1>
+  <small style="color: red;">在angular同一个标签不能同时使用两个及以上的结构性指令</small>
+  <table border="1" width="100%">
+    <tr>
+      <th>姓名</th>
+      <th>薪水</th>
+    </tr>
+
+    <ng-container *ngFor="let item of userList">
+      <tr *ngIf="item.salary >= 10000">
+        <td>{{ item.name }}</td>
+        <td>{{ item.salary }}</td>
+      </tr>
+    </ng-container>
+  </table>
+  <h1>ngStyle练习</h1>
+  <p [ngStyle]="{color: mycolor, border: myBorder}">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam eaque fuga consequuntur molestias hic, quasi nisi doloremque mollitia. Facilis ea tenetur autem at rerum, repellat ad animi debitis! Quos, recusandae.</p>
+  <p [ngStyle]="myStyleObj">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, mollitia illo nemo minima ex et, eveniet, voluptatem repellendus modi omnis praesentium saepe explicabo at excepturi tempore maiores magni alias fugit?</p>
+  <h1>ngClass练习</h1>
+  <p [ngClass]='{"alert-danger": isDanger, "alert-success": isSuccess}'>都会觉得是发火点发货京东方规附近的能否v参加句对数据库时间是多久家具厂</p>
+  <h1>属性绑定</h1>
+  <img [src]="imgSrc" alt="">
+  <h1>事件绑定</h1>
+  <button (click)="myClick1(title)">click here</button>
+  <button (click)="myClick2()">click here</button>
+  <h1>双向数据绑定ngModel</h1>
+  <h2>{{ text }}</h2>
+  <input type="text" [(ngModel)]="text" value="mob">
+
+</div>

@@ -1,0 +1,16 @@
+<div style="text-align: center">
+  <p>原内容：{{ msg }}</p>
+  <p>全大写：{{ msg | uppercase }}</p>
+  <p>全小写：{{ msg | lowercase }}</p>
+  <p>首字母大写：{{ msg | titlecase }}</p>
+  <p>生日：{{ birthday | date }}</p>
+  <p>生日：{{ birthday | date: 'yyyy-MM-dd HH:mm:ss' }}</p>
+  <p>薪资：{{ salary | number: '3.0-4' }}</p>
+  <p>薪资：{{ salary | currency: '￥' }}</p>
+  <h1>自定义管道</h1>
+  <p>性别：{{ sex | sex }}</p>
+  <h1>服务练习</h1>
+  <button (click)="printIt()">click me</button>
+  <h1>获取数据</h1>
+  <button (click)="showIt()">getdata</button>
+</div>
